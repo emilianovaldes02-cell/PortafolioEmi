@@ -1,4 +1,419 @@
 <!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>CAIMÁN.DEV // Grimorio de Proyectos</title>
+  
+  <!-- Fuentes Google -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#0d150d",
+            "surface-low": "#161e14",
+            "surface-high": "#242c22",
+            "surface-lowest": "#081008",
+            "primary": "#d9ee48",
+            "primary-glow": "rgba(217, 238, 72, 0.15)",
+            "secondary": "#c4cd76",
+            "outline": "#464835",
+            "on-surface": "#dce5d6",
+            "on-surface-muted": "#91927b"
+          },
+          fontFamily: {
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Newsreader", "serif"]
+          },
+          keyframes: {
+            pulseSlow: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.4' },
+            },
+            scanline: {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(1000%)' }
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulseSlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'scan': 'scanline 8s linear infinite'
+          }
+        }
+      }
+    };
+  </script>
 
-<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface":"#0d150d","tertiary":"#d4e8cd","on-tertiary":"#243422","on-secondary-fixed-variant":"#444b00","surface-tint":"#bdd12b","outline":"#91927b","surface-container-low":"#161e14","primary-container":"#bdd12b","inverse-surface":"#dce5d6","on-tertiary-fixed-variant":"#3a4b38","surface-container-lowest":"#081008","on-tertiary-container":"#465743","surface-container-highest":"#2f372d","on-primary-fixed":"#191e00","surface-container":"#1a2218","on-surface":"#dce5d6","on-tertiary-fixed":"#101f0f","secondary-container":"#464d01","on-primary-container":"#4e5700","outline-variant":"#464835","on-primary-fixed-variant":"#434b00","on-secondary":"#2e3300","on-secondary-fixed":"#1a1d00","inverse-on-surface":"#2a3328","surface-container-high":"#242c22","on-background":"#dce5d6","background":"#0d150d","primary-fixed":"#d9ee48","inverse-primary":"#596400","error-container":"#93000a","on-error-container":"#ffdad6","on-primary":"#2d3400","tertiary-container":"#b8ccb2","on-surface-variant":"#c7c8af","surface-bright":"#333b31","secondary":"#c4cd76","primary-fixed-dim":"#bdd12b","error":"#ffb4ab","on-error":"#690005","primary":"#d9ee48","secondary-fixed":"#e0e98f","tertiary-fixed-dim":"#b8ccb2","surface-variant":"#2f372d","tertiary-fixed":"#d4e8ce","on-secondary-container":"#b6bf69","secondary-fixed-dim":"#c4cd76","surface-dim":"#0d150d"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin":"3rem","gutter-mobile":"0.75rem","space-xl":"2.5rem","space-md":"1rem","space-lg":"1.5rem","gutter":"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem"},fontFamily:{"body-lg":["JetBrains Mono"],"display-mobile":["Newsreader"],"label-sm":["JetBrains Mono"],"headline-sm":["Newsreader"],"body-sm":["JetBrains Mono"],"display":["Newsreader"],"label-lg":["JetBrains Mono"],"headline-lg-mobile":["Newsreader"],"headline-lg":["Newsreader"],"label-md":["JetBrains Mono"],"headline-md":["Newsreader"],"body-md":["JetBrains Mono"]},fontSize:{"body-lg":["15px",{"lineHeight":"24px","fontWeight":"400"}],"display-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.1em","fontWeight":"500"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-sm":["11px",{"lineHeight":"16px","fontWeight":"400"}],"display":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0","fontWeight":"400"}],"headline-lg":["38px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-md":["26px",{"lineHeight":"34px","fontWeight":"500"}],"body-md":["13px",{"lineHeight":"20px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.6)]"><div class="h-20 w-full px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-0"><img alt="Caimán Hacker Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmuIYcQmjAweI_GzotBz9ENdm_cRa0yiG7MSq_Y0pSahyV3sfIJiBtcsX5m-4utcGJ_oyeJwAuuJpqYeRqrkYOwCGVPzey2M0B30Q2yu-q1Swxu9Wn1aiHotYTG_zvIJyVpbxolAFT6yJPJ6SbjomyWWfl33HfhJ6Idid0sSfn1GydjUHHvquC-iUzAhubOyTdLkD7KsctWUVTVCSyI4TLgc8ytfqrEzi7AFKQIHm7"/><div class="flex flex-col min-w-0"><span class="font-label-lg text-label-lg tracking-wider text-primary truncate">CAIMÁN.DEV // JUNGLE CONSOLE</span><span class="font-label-sm text-label-sm text-secondary truncate flex items-center gap-space-xs"><span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>STATUS: ONLINE (RIO_SISTEMA_V2.4)</span></div></div><nav class="hidden xl:flex items-center gap-space-xs px-space-xs py-space-xs bg-surface-container-lowest rounded" data-active-classes="bg-surface-container-high text-primary font-label-md"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-space-sm py-space-xs rounded transition-colors" data-path="inicio-terminal" href="#">INICIO // TERMINAL</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-space-sm py-space-xs rounded transition-colors" data-path="cursos-kodland" href="#">CURSOS KODLAND</a><a aria-current="page" class="px-space-sm py-space-xs rounded transition-colors bg-surface-container-high text-primary font-label-md" data-path="videojuegos-proyectos" href="#">VIDEOJUEGOS &amp; PROYECTOS</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low px-space-sm py-space-xs rounded transition-colors" data-path="contacto" href="#">CONTACTO</a></nav><div class="flex items-center gap-space-md flex-shrink-0"><div class="hidden sm:flex flex-col text-right"><span class="font-label-sm text-label-sm text-on-surface-variant">DEV_ADDR</span><span class="font-label-sm text-label-sm text-outline">0x7F_CAIMAN</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface"><div class="w-full px-gutter max-w-7xl mx-auto py-space-xl flex flex-col gap-space-xl"><div class="relative rounded-xl p-space-lg md:p-space-xl bg-surface-container-lowest border border-outline-variant shadow-2xl overflow-hidden"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md border-b border-outline-variant/60 pb-space-md"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-sm"><span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">✦ TOMO DE CREACIONES // ARCHIVO ARCEDIANO ✦</span><span class="font-label-sm text-label-sm text-outline">VOL. IV</span></div><h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-display">GRIMORIO DE PROYECTOS &amp; VIDEOJUEGOS</h1><p class="font-body-md text-body-md text-secondary max-w-2xl">Compendio ilustrado de crónicas interactivas, combates tácticos y bestiarios forjados en el río bio-digital.</p></div><div class="flex items-center gap-space-md bg-surface-container px-space-md py-space-sm rounded-lg border border-outline-variant/50"><div class="text-center"><span class="font-label-sm text-label-sm text-outline block">CRÓNICAS</span><span class="font-headline-sm text-headline-sm text-primary font-bold">III</span></div><div class="h-8 w-px bg-outline-variant/60"></div><div class="text-center"><span class="font-label-sm text-label-sm text-outline block">ESPECIES</span><span class="font-headline-sm text-headline-sm text-secondary font-bold">+300</span></div><div class="h-8 w-px bg-outline-variant/60"></div><div class="text-center"><span class="font-label-sm text-label-sm text-outline block">ESTADO</span><span class="font-label-md text-label-md text-primary font-mono">SELLADO</span></div></div></div><div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm pt-space-md text-center font-label-sm text-label-sm text-on-surface-variant"><div class="p-space-xs rounded bg-surface-container-low border border-outline-variant/40"><span class="text-outline block">FOLIO I</span><span class="text-on-surface font-semibold">Run of Doom</span></div><div class="p-space-xs rounded bg-surface-container-low border border-outline-variant/40"><span class="text-outline block">FOLIO II</span><span class="text-on-surface font-semibold">Mounstrikos</span></div><div class="p-space-xs rounded bg-surface-container-low border border-outline-variant/40"><span class="text-outline block">FOLIO III</span><span class="text-on-surface font-semibold">Monster Pets</span></div><div class="p-space-xs rounded bg-surface-container-low border border-outline-variant/40"><span class="text-outline block">ORIGEN</span><span class="text-primary font-semibold">Caimán Engine</span></div></div></div><div class="flex flex-col gap-space-lg"><section class="rounded-xl bg-surface-container-low border border-outline-variant/70 p-space-md md:p-space-lg shadow-xl relative overflow-hidden"><div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm border-b border-outline-variant/40 mb-space-md"><div class="flex items-center gap-space-sm"><span class="px-space-xs py-0.5 rounded text-on-primary bg-primary-container font-label-sm text-label-sm font-bold">FOLIO I</span><h2 class="font-headline-md text-headline-md text-on-surface font-display">RUN OF DOOM</h2></div><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase font-mono">CRÓNICA TÁCTICA // FPS</span></div><div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center"><div class="md:col-span-8 flex flex-col gap-space-sm"><p class="font-headline-sm text-headline-sm text-on-surface leading-snug font-display">Shooter táctico en primera persona inspirado en la Segunda Guerra Mundial. Supervivencia cruda y combate en trincheras.</p><div class="flex flex-wrap gap-space-sm text-body-sm font-label-sm text-on-surface-variant pt-space-xs"><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">⚔ Ambientación: Guerra histórica</span><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">🎯 Mecánica: Balística &amp; Trinchera</span><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">⚙ Motor: Luau / PC</span></div></div><div class="md:col-span-4 flex flex-col gap-space-xs justify-center bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/60 text-center"><span class="font-label-sm text-label-sm text-outline uppercase">SELLO MARCIAL</span><span class="font-headline-sm text-headline-sm text-primary">PRIMERA LÍNEA</span><span class="font-body-sm text-body-sm text-secondary">Supervivencia sin concesiones</span></div></div></section><section class="rounded-xl bg-surface-container-low border border-primary/40 p-space-md md:p-space-lg shadow-2xl relative overflow-hidden"><div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm border-b border-outline-variant/40 mb-space-md"><div class="flex items-center gap-space-sm"><span class="px-space-xs py-0.5 rounded text-on-primary bg-primary font-label-sm text-label-sm font-bold">FOLIO II</span><h2 class="font-headline-md text-headline-md text-on-surface font-display">MOUNSTRIKOS</h2><span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">BESTIARIO ILUSTRADO</span></div><span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-mono">AFINIDADES ELEMENTALES</span></div><div class="flex flex-col gap-space-md"><p class="font-headline-sm text-headline-sm text-on-surface leading-snug font-display">Criaturas singulares que combaten entre sí con afinidades elementales, estilo Pokémon con más de 300 especies para descubrir y coleccionar.</p><div class="bg-surface-container-lowest rounded-lg p-space-md border border-outline-variant/60"><div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-outline-variant/30"><span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">LÁMINAS DE ESPECÍMENES // BESTIARIO DE CAMPO</span><span class="font-label-sm text-label-sm text-outline">REGISTRO 024 &amp; 087</span></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md"><div class="flex items-center gap-space-md p-space-sm rounded bg-surface-container border border-outline-variant/40 hover:bg-surface-container-high transition-colors"><div class="w-20 h-20 bg-surface-container-highest rounded flex items-center justify-center p-1 border border-outline-variant/60 flex-shrink-0"><img alt="Criatura Puerta Viviente" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmclPfMBNCrdsINyqGIHlLfWwsiHJocvJNb-_la4dTplqBrLeWo3wUJ-fyTULbkYEONScTx4EjIFOqPb6I7gW9KDL-A2-cUeFCWS-pAUpVs7wWCZfYSTvxfdsZ0bUaYFI-cXwLOzrjcRz1rJMEtHP_1K-HZjgcDHTvKakCsjv9yZBJDYkI9Uqrw9iupvcntKA00j6D2N5AhToLHPiAI2YarmFNJnOTX-qBcI5FF-WQQjLu5ypK5i_fSg"/></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-label-md text-label-md text-primary font-bold">PUERRAR</span><span class="font-label-sm text-label-sm text-outline">#024</span></div><span class="font-body-sm text-body-sm text-secondary">Afinidad: Madera &amp; Umbral</span><span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Guardián místico con portón defensivo y garras de piedra caliza.</span></div></div><div class="flex items-center gap-space-md p-space-sm rounded bg-surface-container border border-outline-variant/40 hover:bg-surface-container-high transition-colors"><div class="w-20 h-20 bg-surface-container-highest rounded flex items-center justify-center p-1 border border-outline-variant/60 flex-shrink-0"><img alt="Yeti de las Cavernas" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2SODlDYevW_1vPu6rdsDo_FuClngzrpQvUzLh5xlNwwKSREqu3xOob9HogKWWex4BH2lBF1SafXBvblBvKiimWz6ZElybAtqe7WTiIpbbwjAXWC0mRDxadFPG6JKRg_AgoSNgGK-KSInzdpnegT6ATXvo6kMXi_OE31vQcu_FpJE6Lv8vi_6GEYUkbrFz7v7U8ENZJT3QXZpSok03te_26qoCKBaT1mdzjlAexf_i6k8d0OHViN3_jg"/></div><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-label-md text-label-md text-primary font-bold">YETI DEL PANTANO</span><span class="font-label-sm text-label-sm text-outline">#087</span></div><span class="font-body-sm text-body-sm text-secondary">Afinidad: Escarcha &amp; Niebla</span><span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Bestia ancestral de pelaje níveo y mordedura glacial de caverna.</span></div></div></div></div><div class="flex flex-wrap gap-space-sm text-body-sm font-label-sm text-on-surface-variant"><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">🐾 +300 Especies catalogadas</span><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">⚡ Sistema de debilidades elementales</span><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">🎒 Captura, evolución y duelo</span></div></div></section><section class="rounded-xl bg-surface-container-low border border-outline-variant/70 p-space-md md:p-space-lg shadow-xl relative overflow-hidden"><div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm border-b border-outline-variant/40 mb-space-md"><div class="flex items-center gap-space-sm"><span class="px-space-xs py-0.5 rounded text-on-primary bg-primary-container font-label-sm text-label-sm font-bold">FOLIO III</span><h2 class="font-headline-md text-headline-md text-on-surface font-display">MONSTER PETS</h2></div><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase font-mono">GENÉTICA // SANTUARIO</span></div><div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center"><div class="md:col-span-8 flex flex-col gap-space-sm"><p class="font-headline-sm text-headline-sm text-on-surface leading-snug font-display">Juego de bio-ingeniería donde modificas el ADN de monstruos para reducir su agresividad y domesticarlos en tu santuario.</p><div class="flex flex-wrap gap-space-sm text-body-sm font-label-sm text-on-surface-variant pt-space-xs"><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">🧬 Modificación de ADN &amp; Rasgos</span><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">🏡 Domesticación y crianza pacífica</span><span class="bg-surface-container px-space-sm py-1 rounded border border-outline-variant/50">🌿 Ecosistemas de recuperación</span></div></div><div class="md:col-span-4 flex flex-col gap-space-xs justify-center bg-surface-container-lowest p-space-md rounded-lg border border-outline-variant/60 text-center"><span class="font-label-sm text-label-sm text-outline uppercase">OBJETIVO ALQUÍMICO</span><span class="font-headline-sm text-headline-sm text-secondary">ARMONÍA TOTAL</span><span class="font-body-sm text-body-sm text-on-surface-variant">Santuario de bio-paz</span></div></div></section></div><div class="rounded-xl bg-surface-container-lowest p-space-md md:p-space-lg border border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold font-mono">✦</div><div class="flex flex-col"><span class="font-label-md text-label-md text-primary font-bold">EPÍLOGO DEL TOMO</span><span class="font-body-sm text-body-sm text-on-surface-variant">Tres mundos interactivos listos para exploración, combate y simulación.</span></div></div><div class="flex items-center gap-space-sm"><a class="bg-primary text-on-primary font-label-md text-label-md font-bold px-space-md py-space-xs rounded hover:bg-surface-tint transition-all" href="#">VER CATÁLOGO COMPLETO</a></div></div></div></main><footer class="w-full bg-surface-container-lowest text-on-surface-variant py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.7)]"><div class="w-full px-gutter max-w-7xl mx-auto flex flex-col gap-space-lg"><div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg"><div class="flex flex-col gap-space-xs"><div class="flex items-center gap-space-xs"><span class="font-label-md text-label-md text-primary">&gt; CAIMAN_KERNEL</span><span class="font-label-sm text-label-sm text-outline">[v2.4.11-swamp]</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Sistemas de bajo nivel, loops de juegos interactivos y pedagogía Python inmersa en la bio-red del río profundo.</p></div><div class="flex flex-col gap-space-xs"><span class="font-label-md text-label-md text-secondary">TELEMETRÍA DE RED</span><div class="flex flex-col font-body-sm text-body-sm text-outline gap-space-xs"><span class="flex items-center gap-space-xs"><span class="text-primary">&gt;</span> LATENCIA: 12ms // BUFFER RIO_AMAZONAS</span><span class="flex items-center gap-space-xs"><span class="text-primary">&gt;</span> REPO_CORE: /dev/caiman/game_engine.py</span></div></div><div class="flex flex-col gap-space-xs"><span class="font-label-md text-label-md text-secondary">CONSOLA DE COMANDO</span><p class="font-body-sm text-body-sm text-on-surface-variant">Bio-digital computing environment. Hackeando código entre manglares y microprocesadores.</p></div></div><div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-md text-on-surface-variant"><span class="font-label-sm text-label-sm text-outline">© 2024 CAIMÁN.DEV — DERECHOS RESERVADOS. REPTILIAN RUNTIME ENVIRONMENT.</span><div class="flex items-center gap-space-md font-label-sm text-label-sm text-secondary"><span class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> ECO-STREAM ACTIVE</span><span>ENCRIPTACIÓN: 4096-BIO</span></div></div></div></footer></body></html>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #081008; }
+    ::-webkit-scrollbar-thumb { background: #2f372d; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #d9ee48; }
+
+    /* Animation utility for scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Glow Hover Card Effect */
+    .card-glow {
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .card-glow:hover {
+      border-color: rgba(217, 238, 72, 0.5);
+      box-shadow: 0 10px 30px -10px rgba(217, 238, 72, 0.2);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-mono text-on-surface antialiased selection:bg-primary selection:text-surface min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+  <!-- TOP BAR / HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-md border-b border-outline/30">
+    <div class="max-w-7xl mx-auto h-16 px-4 sm:px-6 flex items-center justify-between">
+      
+      <!-- Logo & Status -->
+      <div class="flex items-center gap-3">
+        <img alt="Caimán Logo" class="h-8 w-auto object-contain transition-transform hover:rotate-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmuIYcQmjAweI_GzotBz9ENdm_cRa0yiG7MSq_Y0pSahyV3sfIJiBtcsX5m-4utcGJ_oyeJwAuuJpqYeRqrkYOwCGVPzey2M0B30Q2yu-q1Swxu9Wn1aiHotYTG_zvIJyVpbxolAFT6yJPJ6SbjomyWWfl33HfhJ6Idid0sSfn1GydjUHHvquC-iUzAhubOyTdLkD7KsctWUVTVCSyI4TLgc8ytfqrEzi7AFKQIHm7"/>
+        <div class="flex flex-col">
+          <span class="text-xs font-bold tracking-wider text-primary">CAIMÁN.DEV <span class="text-on-surface-muted">// CONSOLE</span></span>
+          <span class="text-[10px] text-secondary flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-slow"></span> SYS_V2.4 ONLINE
+          </span>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center gap-1 bg-surface-lowest p-1 rounded-lg border border-outline/40 text-xs">
+        <a href="#inicio" class="px-3 py-1.5 rounded text-on-surface-muted hover:text-primary hover:bg-surface-high transition">INICIO</a>
+        <a href="#proyectos" class="px-3 py-1.5 rounded bg-surface-high text-primary font-semibold transition">PROYECTOS</a>
+        <a href="#bestiario" class="px-3 py-1.5 rounded text-on-surface-muted hover:text-primary hover:bg-surface-high transition">BESTIARIO</a>
+        <a href="#terminal" class="px-3 py-1.5 rounded text-on-surface-muted hover:text-primary hover:bg-surface-high transition">TERMINAL</a>
+      </nav>
+
+      <!-- Dev Badge -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex flex-col text-right text-[10px]">
+          <span class="text-on-surface-muted">ADDR</span>
+          <span class="text-primary font-bold">0x7F_CAIMAN</span>
+        </div>
+        <div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary shadow-sm hover:bg-primary hover:text-surface transition">
+          <span class="material-symbols-outlined text-sm">code</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="w-full pt-24 pb-16 px-4 sm:px-6 max-w-7xl mx-auto flex-1 flex flex-col gap-10">
+
+    <!-- HERO / BANNER -->
+    <section class="reveal relative rounded-2xl bg-surface-lowest border border-outline/40 p-6 sm:p-8 overflow-hidden shadow-2xl">
+      <!-- Ambient Glow -->
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 border-b border-outline/30 pb-6">
+        <div class="space-y-2 max-w-3xl">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 text-[10px] uppercase font-bold tracking-widest text-surface bg-primary rounded">TOMO DIGITAL</span>
+            <span class="text-xs text-on-surface-muted font-mono">VOL. IV // ARCHIVO ARCEDIANO</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-display font-normal text-on-surface tracking-tight">
+            Grimorio de Proyectos & Videojuegos
+          </h1>
+          <p class="text-sm text-secondary leading-relaxed">
+            Compendio táctico de experiencias interactivas, combates estratégicos y bio-ingeniería digital forjada en el motor Caimán.
+          </p>
+        </div>
+
+        <!-- Quick Stats Widget -->
+        <div class="grid grid-cols-3 gap-3 bg-surface-low p-3 rounded-xl border border-outline/30 w-full lg:w-auto text-center shrink-0">
+          <div class="px-3">
+            <span class="block text-[10px] text-on-surface-muted uppercase">FOLIOS</span>
+            <span class="text-xl font-bold text-primary">03</span>
+          </div>
+          <div class="px-3 border-x border-outline/30">
+            <span class="block text-[10px] text-on-surface-muted uppercase">ESPECIES</span>
+            <span class="text-xl font-bold text-secondary">+300</span>
+          </div>
+          <div class="px-3">
+            <span class="block text-[10px] text-on-surface-muted uppercase">ESTADO</span>
+            <span class="text-xs font-bold text-primary leading-7">OPERATIVO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Nav Tags -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 text-center text-xs">
+        <a href="#folio-1" class="p-2 rounded bg-surface-low border border-outline/20 hover:border-primary/50 transition text-on-surface-muted hover:text-primary">
+          <span class="text-[10px] text-on-surface-muted block">01 // FPS</span>
+          <span class="font-semibold text-on-surface">Run of Doom</span>
+        </a>
+        <a href="#folio-2" class="p-2 rounded bg-surface-low border border-outline/20 hover:border-primary/50 transition text-on-surface-muted hover:text-primary">
+          <span class="text-[10px] text-on-surface-muted block">02 // BESTIARIO</span>
+          <span class="font-semibold text-on-surface">Mounstrikos</span>
+        </a>
+        <a href="#folio-3" class="p-2 rounded bg-surface-low border border-outline/20 hover:border-primary/50 transition text-on-surface-muted hover:text-primary">
+          <span class="text-[10px] text-on-surface-muted block">03 // BIO-GEN</span>
+          <span class="font-semibold text-on-surface">Monster Pets</span>
+        </a>
+        <div class="p-2 rounded bg-surface-low border border-outline/20 text-on-surface-muted">
+          <span class="text-[10px] text-on-surface-muted block">ENGINE</span>
+          <span class="font-semibold text-primary">Luau & Python</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS LIST -->
+    <div id="proyectos" class="space-y-6">
+
+      <!-- FOLIO 1: RUN OF DOOM -->
+      <section id="folio-1" class="reveal card-glow rounded-xl bg-surface-low border border-outline/40 p-6 relative overflow-hidden">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-outline/30 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-surface-high text-primary border border-primary/30">FOLIO I</span>
+            <h2 class="text-xl sm:text-2xl font-display text-on-surface">RUN OF DOOM</h2>
+          </div>
+          <span class="text-xs text-secondary tracking-widest font-mono">FPS TÁCTICO // SURVIVAL</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <p class="text-sm text-on-surface leading-relaxed">
+              Shooter de supervivencia cruda inspirado en combate de trincheras histórico. Enfocado en balística realista, gestión de recursos y alta tensión táctica.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-primary">military_tech</span> Segunda Guerra Mundial
+              </span>
+              <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-primary">target</span> Balística & Trincheras
+              </span>
+              <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-primary">desktop_windows</span> PC / Luau Engine
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 bg-surface-lowest p-4 rounded-xl border border-outline/30 text-center space-y-1">
+            <span class="text-[10px] text-on-surface-muted tracking-widest block uppercase">CLASIFFICACIÓN</span>
+            <span class="text-lg font-bold text-primary block">PRIMERA LÍNEA</span>
+            <span class="text-xs text-secondary block">Combate de alta letalidad</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOLIO 2: MOUNSTRIKOS (FEATURED BESTIARY) -->
+      <section id="folio-2" class="reveal card-glow rounded-xl bg-surface-low border border-primary/40 p-6 relative overflow-hidden shadow-lg">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-outline/30 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-primary text-surface font-semibold">FOLIO II</span>
+            <h2 class="text-xl sm:text-2xl font-display text-on-surface">MOUNSTRIKOS</h2>
+            <span class="hidden sm:inline-block px-2 py-0.5 rounded bg-surface-high text-secondary text-xs">BESTIARIO DESTACADO</span>
+          </div>
+          <span class="text-xs text-primary font-mono tracking-widest">300+ ESPECIES</span>
+        </div>
+
+        <div class="space-y-5">
+          <p class="text-sm text-on-surface leading-relaxed">
+            RPG táctico de coleccionismo y duelo de criaturas singulares con afinidades elementales complejas y evoluciones dinámicas.
+          </p>
+
+          <!-- Cards de Especies -->
+          <div id="bestiario" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Especie 1 -->
+            <div class="flex items-center gap-4 p-3 rounded-lg bg-surface-lowest border border-outline/30 hover:border-primary/40 transition group">
+              <div class="w-16 h-16 bg-surface-high rounded-lg p-1 border border-outline/40 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <img alt="Puerrar" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmclPfMBNCrdsINyqGIHlLfWwsiHJocvJNb-_la4dTplqBrLeWo3wUJ-fyTULbkYEONScTx4EjIFOqPb6I7gW9KDL-A2-cUeFCWS-pAUpVs7wWCZfYSTvxfdsZ0bUaYFI-cXwLOzrjcRz1rJMEtHP_1K-HZjgcDHTvKakCsjv9yZBJDYkI9Uqrw9iupvcntKA00j6D2N5AhToLHPiAI2YarmFNJnOTX-qBcI5FF-WQQjLu5ypK5i_fSg"/>
+              </div>
+              <div class="space-y-1 min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-bold text-primary">PUERRAR</span>
+                  <span class="text-[10px] text-on-surface-muted font-mono">#024</span>
+                </div>
+                <div class="text-xs text-secondary">Madera / Umbral</div>
+                <p class="text-[11px] text-on-surface-muted truncate">Guardián místico con portón defensivo.</p>
+              </div>
+            </div>
+
+            <!-- Especie 2 -->
+            <div class="flex items-center gap-4 p-3 rounded-lg bg-surface-lowest border border-outline/30 hover:border-primary/40 transition group">
+              <div class="w-16 h-16 bg-surface-high rounded-lg p-1 border border-outline/40 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <img alt="Yeti del Pantano" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2SODlDYevW_1vPu6rdsDo_FuClngzrpQvUzLh5xlNwwKSREqu3xOob9HogKWWex4BH2lBF1SafXBvblBvKiimWz6ZElybAtqe7WTiIpbbwjAXWC0mRDxadFPG6JKRg_AgoSNgGK-KSInzdpnegT6ATXvo6kMXi_OE31vQcu_FpJE6Lv8vi_6GEYUkbrFz7v7U8ENZJT3QXZpSok03te_26qoCKBaT1mdzjlAexf_i6k8d0OHViN3_jg"/>
+              </div>
+              <div class="space-y-1 min-w-0">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm font-bold text-primary">YETI DEL PANTANO</span>
+                  <span class="text-[10px] text-on-surface-muted font-mono">#087</span>
+                </div>
+                <div class="text-xs text-secondary">Escarcha / Niebla</div>
+                <p class="text-[11px] text-on-surface-muted truncate">Bestia ancestral de mordedura glacial.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Feature Tags -->
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted">🐾 +300 Especies catalogadas</span>
+            <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted">⚡ Tabla de Debilidades Elementales</span>
+            <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted">🎒 Captura, Crianza y Duelos</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOLIO 3: MONSTER PETS -->
+      <section id="folio-3" class="reveal card-glow rounded-xl bg-surface-low border border-outline/40 p-6 relative overflow-hidden">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-outline/30 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-0.5 rounded text-xs font-bold bg-surface-high text-primary border border-primary/30">FOLIO III</span>
+            <h2 class="text-xl sm:text-2xl font-display text-on-surface">MONSTER PETS</h2>
+          </div>
+          <span class="text-xs text-secondary tracking-widest font-mono">BIO-GENÉTICA // SIMULADOR</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <p class="text-sm text-on-surface leading-relaxed">
+              Simulador de bio-ingeniería donde alteras el ADN de criaturas hostiles para mitigar su agresividad y rehabilitarlas en santuarios ecológicos.
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-primary">dna</span> Edición Genética de Rasgos
+              </span>
+              <span class="bg-surface-lowest px-3 py-1 rounded border border-outline/40 text-on-surface-muted flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-primary">home_health</span> Santuario & Domesticación
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 bg-surface-lowest p-4 rounded-xl border border-outline/30 text-center space-y-1">
+            <span class="text-[10px] text-on-surface-muted tracking-widest block uppercase">META ALQUÍMICA</span>
+            <span class="text-lg font-bold text-secondary block">ARMONÍA SINETICA</span>
+            <span class="text-xs text-on-surface-muted block">Pacificación de fauna</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TERMINAL INTERACTIVA / EASTER EGG -->
+    <section id="terminal" class="reveal rounded-xl bg-surface-lowest border border-outline/50 p-4 font-mono text-xs space-y-3 shadow-inner">
+      <div class="flex items-center justify-between border-b border-outline/30 pb-2 text-on-surface-muted">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block"></span>
+          <span class="ml-2 font-bold text-primary">caiman_cli_v2.4.sh</span>
+        </div>
+        <span>UTF-8</span>
+      </div>
+
+      <div id="terminal-output" class="space-y-1 text-on-surface-muted min-h-[80px] max-h-[160px] overflow-y-auto">
+        <p><span class="text-primary">caiman@system:~$</span> init portfolio_kernel --verbose</p>
+        <p class="text-secondary">[OK] Caimán Engine activo. Escribe 'help' o presiona los folios arriba para explorar.</p>
+      </div>
+
+      <div class="flex items-center gap-2 pt-1 border-t border-outline/20">
+        <span class="text-primary font-bold">&gt;</span>
+        <input id="terminal-input" type="text" placeholder="Escribe 'help', 'folio 1', 'folio 2', 'status'..." class="bg-transparent text-on-surface focus:outline-none w-full placeholder:text-on-surface-muted/40"/>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface-lowest border-t border-outline/30 py-8 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-on-surface-muted">
+      <div class="flex items-center gap-2">
+        <span class="text-primary font-bold">&gt; CAIMAN_KERNEL</span>
+        <span class="text-outline">|</span>
+        <span>© 2026 CAIMÁN.DEV</span>
+      </div>
+      <div class="flex items-center gap-4 text-secondary">
+        <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> RIO_STREAM ACTIVE</span>
+        <span>ENCRIPTACIÓN 4096-BIO</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PARA REVELAR EN SCROLL & INTERACCIÓN DE TERMINAL -->
+  <script>
+    // Scroll Reveal Animation (Intersection Observer)
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Mini Terminal Interactive Logic
+      const input = document.getElementById('terminal-input');
+      const output = document.getElementById('terminal-output');
+
+      input?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const val = input.value.trim().toLowerCase();
+          const line = document.createElement('p');
+          line.innerHTML = `<span class="text-primary">caiman@system:~$</span> ${input.value}`;
+          output.appendChild(line);
+
+          const response = document.createElement('p');
+          response.className = 'text-secondary mb-1';
+
+          switch (val) {
+            case 'help':
+              response.innerText = "Comandos disponibles: 'folio 1', 'folio 2', 'folio 3', 'status', 'clear'";
+              break;
+            case 'folio 1':
+              response.innerText = ">> CARGANDO: Run of Doom - FPS Táctico en trincheras.";
+              document.getElementById('folio-1')?.scrollIntoView({ behavior: 'smooth' });
+              break;
+            case 'folio 2':
+              response.innerText = ">> CARGANDO: Mounstrikos - Bestiario con +300 especímenes.";
+              document.getElementById('folio-2')?.scrollIntoView({ behavior: 'smooth' });
+              break;
+            case 'folio 3':
+              response.innerText = ">> CARGANDO: Monster Pets - Bio-ingeniería & Edición Genética.";
+              document.getElementById('folio-3')?.scrollIntoView({ behavior: 'smooth' });
+              break;
+            case 'status':
+              response.innerText = "SISTEMA: RIO_SISTEMA_V2.4 // LATENCIA: 12ms // ESTADO: OPTIMO";
+              break;
+            case 'clear':
+              output.innerHTML = '';
+              input.value = '';
+              return;
+            default:
+              response.innerText = `Comando no reconocido: '${val}'. Escribe 'help' para ayuda.`;
+          }
+
+          output.appendChild(response);
+          output.scrollTop = output.scrollHeight;
+          input.value = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
